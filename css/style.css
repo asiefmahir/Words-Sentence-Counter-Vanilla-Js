@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0 auto;
+	width: 50%;
+	margin-top: 60px;
+	background-color: palegreen;
+}
+
+.text-area {
+	outline: none;
+	resize: none;
+	font-size: 25px;
+	background-color: palegoldenrod;
+}
+.label-textarea {
+	font-size: larger;
+	font-weight: bold;
+}
+.counts-div {
+	margin-top: 20px;
+	padding-left: 280px;
+}
+.words-count {
+	font-size: larger;
+	font-weight: bold;
+}
+.sentences-count {
+	font-size: larger;
+	font-weight: bold;
+}
+.w-count {
+	font-size: 50px;
+	color: green;
+}
+.s-count {
+	font-size: 50px;
+	color: green;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Count</title>
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body>
+		<div>
+			<label class="label-textarea" for="text"
+				>Enter your text below:</label
+			>
+			<br />
+			<br />
+			<div>
+				<textarea
+					cols="50"
+					rows="10"
+					id="text"
+					class="text-area"
+					name="text"
+				></textarea>
+			</div>
+			<div class="counts-div">
+				<p class="words-count">
+					You have got
+					<span class="w-count" id="word-count">0</span> words.
+				</p>
+				<br />
+				<p class="sentences-count">
+					You have got
+					<span class="s-count" id="sentence-count">0</span>
+					sentences.
+				</p>
+			</div>
+			<script src="./app.js"></script>
+		</div>
+	</body>
+</html>

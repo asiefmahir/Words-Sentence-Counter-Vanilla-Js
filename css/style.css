@@ -8,7 +8,9 @@ body {
 	margin-top: 60px;
 	background-color: palegreen;
 }
-
+.wrapper {
+	padding-left: 0.5rem;
+}
 .text-area {
 	outline: none;
 	resize: none;
@@ -21,7 +23,7 @@ body {
 }
 .counts-div {
 	margin-top: 20px;
-	padding-left: 280px;
+	padding-left: 100px;
 }
 .words-count {
 	font-size: larger;

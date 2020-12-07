@@ -29,48 +29,56 @@ const sentencesCount = document.getElementById("sentence-count");
  * Compose two functions in another function
  */
 
-let word = 0;
-let sentence = 0;
-function wordCount() {
-	let words = textArea.value.split(/[.|!|?|' ']+/g);
-	let filteredWords = [];
-	for (let i = 0; i < words.length; i++) {
-		let w = words[i];
-		let counter = 0;
-
-		for (let k = 0; k < w.length; k++) {
-			if (
-				(w[k] >= "A" && w[k] <= "Z") ||
-				(w[k] >= "a" && w[k] <= "z") ||
-				(w[k] >= "0" && w[k] <= "9")
-			) {
-				counter++;
-			}
-		}
-
-		if (counter !== 0) {
-			filteredWords.push(words[i]);
-		}
-
-		word = filteredWords.length;
-		wordsCount.textContent = word;
-	}
+function isAlphaNumeric(char) {
+	return (
+		(char >= "A" && char <= "Z") ||
+		(char >= "a" && char <= "z") ||
+		(char >= "0" && char <= "9")
+	);
 }
-
-function sentenceCount() {
-	let arr = textArea.value.replace(/\s/g, "").split(/[.|!|?]+/g);
-	let sentences = [];
-	for (let i = 0; i < arr.length; i++) {
-		if (!arr[i].includes(" ")) {
-			sentences.push(arr[i]);
+function isValidWord(word) {
+	for (let w of word) {
+		if (isAlphaNumeric(w)) {
+			return true;
 		}
 	}
-	sentence = sentences.length - 1;
-	sentencesCount.textContent = sentence;
+	return false;
 }
-function count() {
-	wordCount();
-	sentenceCount();
+function getWords(sentence) {
+	return sentence.split(/[,|.|?|!|' ']/g);
+}
+function getWordCount(sentence) {
+	const words = getWords(sentence);
+	let count = 0;
+	words.forEach((w) => {
+		if (isValidWord(w)) {
+			count++;
+		}
+	});
+	return count;
 }
 
-textArea.addEventListener("input", count);
+function getSentence(sentences) {
+	return sentences.split(/[.|!|?]+/g);
+}
+function getSentenceCount(sentences) {
+	let sentencesArray = getSentence(sentences);
+	let count = 0;
+	let test = [];
+	sentencesArray.forEach((s) => {
+		console.log(sentencesArray);
+		if (isValidWord(s)) {
+			test.push(s);
+			console.log(test);
+			count++;
+		}
+	});
+	return count;
+}
+
+function showCount() {
+	wordsCount.textContent = getWordCount(textArea.value);
+	sentencesCount.textContent = getSentenceCount(textArea.value);
+}
+
+textArea.addEventListener("input", showCount);

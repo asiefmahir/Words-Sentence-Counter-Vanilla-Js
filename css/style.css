@@ -31,6 +31,7 @@ body {
 	font-size: var(--primary-font-size);
 	background-color: var(--secondary-bg-color);
 	border-radius: 0.5rem;
+	box-shadow: 0 5px 5px #c2c2c2;
 }
 .w-count,
 .s-count {
